@@ -2,15 +2,22 @@ package main
 
 import (
 	"fmt"
-	"runtime"
-	"time"
-
 	"github.com/gocolly/colly/v2"
 	queue "github.com/gocolly/colly/v2/gQueue"
+	"runtime"
 )
 
 func main() {
 	fmt.Println("goroutine queue", runtime.NumGoroutine())
+	for i := 0; i < 3; i++ {
+		test()
+		fmt.Println("goroutine queue", runtime.NumGoroutine())
+	}
+	fmt.Println("goroutine queue", runtime.NumGoroutine())
+}
+
+func test() {
+
 	url := "https://httpbin.org/delay/1"
 
 	// Instantiate default collector
@@ -41,7 +48,4 @@ func main() {
 	}
 	// Consume URLs
 	q.Run(c)
-
-	time.Sleep(5 * time.Second)
-	fmt.Println("goroutine queue", runtime.NumGoroutine())
 }
