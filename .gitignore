@@ -1,0 +1,19 @@
+vendor/
+
+### IDEA ###
+.idea
+.DS_Store
+.DS_Store?
+._*
+*.sublime-workspace
+*.sublime-project
+/nbproject/
+.buildpath
+.project
+.settings/
+*.swp
+
+### Project ###
+skaffold.yaml
+deploy/helm/values.yaml
+deploy/helm/Chart.yaml
